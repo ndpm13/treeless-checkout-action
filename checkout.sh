@@ -5,9 +5,10 @@ set -ex
 REMOTE_REF="${GITHUB_REF/refs\//refs\/remotes\/}"
 
 /bin/echo -e '::group::\x1b[32mCloning repository...\x1b[0m'
-git clone --progress --no-checkout --filter=tree:0 "${SERVER_URL}/${REPOSITORY}" "$PWD"
+git clone --progress --no-checkout --filter=tree:0 "${SERVER_URL}/${REPOSITORY}" "$PWD/${DIRECTORY}"
 git config --global --add gc.auto 0
-git config --global --add safe.directory "$PWD"
+git config --global --add safe.directory "$PWD/${DIRECTORY}"
+cd "$PWD/${DIRECTORY}"
 echo "::endgroup::"
 
 /bin/echo -e '::group::\x1b[32mFetching repository refs...\x1b[0m'

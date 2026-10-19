@@ -17,6 +17,10 @@ inputs:
     description: 'GitHub server url'
     required: false
     default: ${{ github.server_url }}
+  directory:
+    description: 'Directory to clone into'
+    required: false
+    default: ''
 runs:
   using: "composite"
   steps:
@@ -26,3 +30,4 @@ runs:
         GITHUB_REF: ${{ inputs.ref }}
         REPOSITORY: ${{ inputs.repository }}
         SERVER_URL: ${{ inputs.server_url }}
+        DIRECTORY: ${{ inputs.directory }}
