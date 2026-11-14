@@ -27,7 +27,7 @@ runs:
     - run: $GITHUB_ACTION_PATH/checkout.sh
       shell: bash
       env:
-        GITHUB_REF: ${{ inputs.ref }}
+        REF: ${{ inputs.ref }}
         REPOSITORY: ${{ inputs.repository }}
         SERVER_URL: ${{ inputs.server_url }}
         DIRECTORY: ${{ inputs.directory }}
